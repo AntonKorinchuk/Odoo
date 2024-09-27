@@ -19,7 +19,6 @@ Clone the project repository:
 git clone https://github.com/AntonKorinchuk/Odoo.git
 cd Odoo
 ```
-
 Clone the Odoo repository into the same directory using the following command:
 ```shell
 git clone https://github.com/odoo/odoo --depth 1 --branch 16.0 --single-branch
@@ -42,10 +41,4 @@ Install dependencies:
 ```shell
 pip install -r odoo/requirements.txt
 ```
-
-Rename template_odoo.conf to odoo.conf file and populate it with the required data
-
-Restart the Odoo server:
-```shell
-odoo/odoo-bin -c conf/odoo.conf
-```
+Rename template_odoo.conf to odoo.conf file and populate it with the required data and start server

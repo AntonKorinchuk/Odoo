@@ -15,11 +15,7 @@ class PersonsController(http.Controller):
         )
 
     @http.route(
-        "/persons/create",
-        type="http",
-        auth="public",
-        website=True,
-        methods=["GET"]
+        "/persons/create", type="http", auth="public", website=True, methods=["GET"]
     )
     def person_form(self, **kwargs):
         return request.render("persons_module.person_form")

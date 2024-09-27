@@ -2,6 +2,7 @@ from odoo import models, fields, api
 from datetime import date
 from odoo.exceptions import ValidationError
 
+
 class Person(models.Model):
     _name = "persons.person"
     _description = "Person"
@@ -38,13 +39,15 @@ class Person(models.Model):
             if person.birthday:
                 today = date.today()
                 birth_date = person.birthday
-                person.age = today.year - birth_date.year - (
-                    (today.month, today.day) < (birth_date.month, birth_date.day)
+                person.age = (
+                    today.year
+                    - birth_date.year
+                    - ((today.month, today.day) < (birth_date.month, birth_date.day))
                 )
             else:
                 person.age = 0
 
-    @api.constrains('birthday')
+    @api.constrains("birthday")
     def _check_birthday(self):
         for person in self:
             if person.birthday and person.birthday > date.today():
